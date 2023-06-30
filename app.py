@@ -7,7 +7,7 @@ import pytz
 import urllib.parse 
 
 # Configure Database URI: 
-params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:appdbserver431.database.windows.net,1433;Database=appdB;Uid=SumanSQL;Pwd=Welcome@12345;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:appdbserver431.database.windows.net,1433;Database=appdB;Uid=SumanSQL;Pwd=Welcome@12345;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30")
 
 # Init app
 app = Flask(__name__)
@@ -27,7 +27,7 @@ db = SQLAlchemy(app)
 # >>> db.create_all()
 
 
-class Todo(db.Model):
+class Todo(db.Model):    #This automatically create a table named 'Todo' within the above said db.
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False) 
     content = db.Column(db.String(200), nullable=False)
