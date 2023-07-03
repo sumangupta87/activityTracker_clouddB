@@ -7,7 +7,7 @@ import pytz
 import urllib.parse 
 
 # Configure Database URI: 
-params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:appdb4321.database.windows.net,1433;Database=appdb;Uid=SumanSQL;Pwd=Welcome@12345;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30")
+params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:newappserver21.database.windows.net,1433;Database=newapp;Uid=SQSuman;Pwd=12345@Welcome;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30")
 
 # Init app
 app = Flask(__name__)
