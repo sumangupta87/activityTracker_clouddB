@@ -7,7 +7,7 @@ import pytz
 import urllib.parse 
 
 # Configure Database URI: 
-params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:newappserver21.database.windows.net,1433;Database=newapp;Uid=SQSuman;Pwd=12345@Welcome;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30")
+params = urllib.parse.quote_plus("Driver={ODBC Driver 18 for SQL Server};Server=tcp:newappserver21.database.windows.net,1433;Database=newapp;Uid=SQSuman;Pwd=12345@Welcome;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
 
 # Init app
 app = Flask(__name__)
@@ -32,14 +32,14 @@ class Todo(db.Model):    #This automatically create a table named 'Todo' within 
     name = db.Column(db.String(200), nullable=False) 
     content = db.Column(db.String(200), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.now(pytz.timezone('Asia/Kolkata')))
-    started = db.Column(db.DateTime, default = datetime.now(pytz.timezone('Asia/Kolkata')))
+    start = db.Column(db.DateTime, default = datetime.now(pytz.timezone('Asia/Kolkata')))
     #duration = db.Column(db.Integer, default = 0 )
 
     def __repr__(self):
         return '<Task %r>' % self.id
 
-#with app.app_context():
-#    db.create_all()
+with app.app_context():
+    db.create_all()
 
 @app.route('/', methods = ['POST','GET'])
 def index():
